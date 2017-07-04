@@ -6,10 +6,4 @@ class Property(object):
         self.property_type = property_type
         self.price = price
         self.area = area
-        self._is_listed = False
-    
-    def get_area(self):
-        return self.area
-
-    def is_listed(self):
-        return self._is_listed
+        
