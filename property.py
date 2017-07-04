@@ -6,4 +6,7 @@ class Property(object):
         self.property_type = property_type
         self.price = price
         self.area = area
-        
+        self._property_type = 'property'
+    
+    def get_type(self):
+        return self._property_type

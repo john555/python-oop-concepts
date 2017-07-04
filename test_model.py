@@ -1,22 +1,27 @@
-import unittest, property, housing, land
+import unittest, housing, land
+from property import Property
 
 class PropertyTest(unittest.TestCase):
     def test_initializes_child(self):
-        my_housing = housing.Housing(2, 4)
+        my_house = housing.Housing(2, 4)
         my_land = land.Land()
-        self.assertTrue(isinstance(my_housing, housing.Housing))
+        self.assertTrue(isinstance(my_house, housing.Housing))
         self.assertTrue(isinstance(my_land, land.Land))
         
     def test_inheritance(self):
-        my_housing = housing.Housing(2, 4)
+        my_house = housing.Housing(2, 4)
         my_land = land.Land()
-        self.assertTrue(isinstance(my_housing, property.Property))
-        self.assertTrue(isinstance(my_land, property.Property))
+        self.assertTrue(isinstance(my_house, Property))
+        self.assertTrue(isinstance(my_land, Property))
     
     def test_polymorphism(self):
-        my_housing = housing.Housing('House in Kampala', 200000, 5000, 3, 2)
+        my_property = Property()
+        my_house = housing.Housing('House in Kampala', 200000, 5000, 3, 2)
         my_land = land.Land('Land in Mukono', 7000000, 10000)
-        #self.assertEqual()
+        
+        self.assertEqual('property', my_property.get_type())
+        self.assertEqual('land', my_land.get_type())
+        self.assertEqual('house', my_house.get_type())
         
     
     def test_encapsulation(self):
@@ -24,7 +29,6 @@ class PropertyTest(unittest.TestCase):
         my_land = land.Land('Land in Mukono', 7000000, 10000)
 
         with self.assertRaises(AttributeError):
-            my_land.__property_type
             my_house.__bedrooms
             my_house.__bathrooms
         self.assertEqual('land', my_land.get_type())

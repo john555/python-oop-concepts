@@ -5,7 +5,7 @@ class Housing(property.Property):
         
         self.__bedrooms = bedrooms # private
         self.__bathrooms = bathrooms # private
-        self._property_type = 'housing' # protected
+        self._property_type = 'house' # protected
 
     def get_bedrooms(self):
         return self.__bedrooms
