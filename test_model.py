@@ -22,7 +22,8 @@ class PropertyTest(unittest.TestCase):
         self.assertEqual('property', my_property.get_type())
         self.assertEqual('land', my_land.get_type())
         self.assertEqual('house', my_house.get_type())
-        
+        self.assertEqual('UGX 200000', my_house.get_price(format=True))
+        self.assertEqual(200000, my_house.get_price())
     
     def test_encapsulation(self):
         my_house = housing.Housing('House in Kampala', 200000, 5000, 3, 2)
